@@ -1,15 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Routes,
   Route,
 } from 'react-router-dom';
 import Dashboard from "./Dashboard";
 import About from "./About";
+import StateHeader from "./StateHeader";
 
 export default App = () => {
+  const [isConnected, setIsConnected] = useState(false);
+
   return (
     <React.Fragment>
-      <section className="app-main-section">
+      <StateHeader
+        isConnected={isConnected}
+        setIsConnected={setIsConnected}
+      />
+      <div>
         <Routes>
           <Route
             path="/"
@@ -20,7 +27,7 @@ export default App = () => {
             element={<About/>}
           />
         </Routes>
-      </section>
+      </div>
     </React.Fragment>
   );
 }
