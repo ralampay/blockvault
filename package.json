@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@metamask/detect-provider": "^2.0.0",
     "@metamask/sdk-react": "^0.14.1",
     "autoprefixer": "^10.4.16",
     "axios": "^1.6.2",

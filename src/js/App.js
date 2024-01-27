@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {
   Routes,
   Route,
@@ -6,28 +6,27 @@ import {
 import Dashboard from "./Dashboard";
 import About from "./About";
 import StateHeader from "./StateHeader";
+import {useSDK} from "@metamask/sdk-react";
+import detectEthereumProvider from '@metamask/detect-provider'
 
 export default App = () => {
-  const [isConnected, setIsConnected] = useState(false);
-
   return (
     <React.Fragment>
       <StateHeader
-        isConnected={isConnected}
-        setIsConnected={setIsConnected}
       />
-      <div>
-        <Routes>
-          <Route
-            path="/"
-            element={<Dashboard/>}
-          />
-          <Route
-            path="/about"
-            element={<About/>}
-          />
-        </Routes>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Dashboard
+            />
+          }
+        />
+        <Route
+          path="/about"
+          element={<About/>}
+        />
+      </Routes>
     </React.Fragment>
   );
 }
